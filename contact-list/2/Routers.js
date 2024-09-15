@@ -15,7 +15,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 const getDrawerItemIcon = icon => ({ color }) => (
   <MaterialIcons name={icon} size={22} style={{ color }} />
 );
-// const getTabBarIcon = icon =>({tintColor})=>(<MaterialIcons name= {icon} size={26} style={{ colors : tintColor}} />);
+const getTabBarIcon = icon =>({tintColor})=>(<MaterialIcons name= {icon} size={26} style={{ colors : tintColor}} />);
 const Stack = createStackNavigator();
 
 const ContactsScreens = () => {
@@ -24,7 +24,7 @@ const ContactsScreens = () => {
       <Stack.Navigator
         initialRouteName="Contacts"
         screenOptions={{
-          headerShown:true,
+          headerShown:false,
           headerTintColor: 'white',
           headerStyle: { backgroundColor: 'tomato' },
           headerTitleAlign: 'center',
@@ -114,41 +114,38 @@ const FavoritesScreens= () => {
             ); 
           }   
   
-// const Tab = createMaterialBottomTabNavigator();
-//     const TabNavigator = () => {
-//       return (
-//         <NavigationContainer>
-//           <Tab.Navigator
-//             initialRouteName="ContactsScreens"
-//             barStyle={{ backgroundColor: colors.blue }}
-//             labeled={false}
-//             activeTintColor={colors.greyLight}
-//             inactiveColor={colors.greyDark}
-//           >
-//             <Tab.Screen
-//               name="ContactsScreens"
-//               component={ContactsScreens}
-//               options={{
-//                 tabBarIcon: getTabBarIcon('list'),
-//               }}
-//             />
-//             <Tab.Screen
-//               name="FavoritesScreens"
-//               component={FavoritesScreens}
-//               options={{
-//                 tabBarIcon: getTabBarIcon('star'),
-//               }}
-//             />
-//             <Tab.Screen
-//               name="UserScreens"
-//               component={UserScreens}
-//               options={{
-//                 tabBarIcon: getTabBarIcon('person'),
-//               }}
-//             />
-//           </Tab.Navigator>
-//         </NavigationContainer>
-//       );
-//     };
-
-export default DrawerNavigator;   
+const Tab = createMaterialBottomTabNavigator();
+    const TabNavigator = () => {
+      return (       
+          <Tab.Navigator
+            initialRouteName="ContactsScreens"
+            barStyle={{ backgroundColor: colors.blue }}
+            labeled={false}
+            activeTintColor={colors.greyLight}
+            inactiveColor={colors.greyDark}
+          >
+            <Tab.Screen
+              name="ContactsScreens"
+              component={ContactsScreens}
+              options={{
+                tabBarIcon: getTabBarIcon('list'),
+              }}
+            />
+            <Tab.Screen
+              name="FavoritesScreens"
+              component={FavoritesScreens}
+              options={{
+                tabBarIcon: getTabBarIcon('star'),
+              }}
+            />
+            <Tab.Screen
+              name="UserScreens"
+              component={UserScreens}
+              options={{
+                tabBarIcon: getTabBarIcon('person'),
+              }}
+            />
+          </Tab.Navigator>     
+      );
+    };
+export default TabNavigator;   

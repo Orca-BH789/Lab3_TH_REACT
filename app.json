@@ -7,11 +7,14 @@
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
+    "ExperimentalBlurMethod": "dimezisBlurView",
+    
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+  
     "ios": {
       "supportsTablet": true
     },
