@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, Alert, Linking, Share } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Alert, Linking, Share,Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';  
 import ContactThumbnail from '../components/ContactThumbnail';
 import DetailListItem from '../components/DetailListItem';

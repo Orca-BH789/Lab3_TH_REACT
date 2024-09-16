@@ -18,7 +18,6 @@ const ContactListItem = ({ name, avatar, phone, onPress }) => {
             uri: avatar,
           }}
         />
-
         <View style={styles.details}>
           <Text style={[styles.title]}>{name}</Text>
           <Text style={styles.subtitle}>{phone}</Text>

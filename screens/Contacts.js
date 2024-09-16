@@ -20,6 +20,7 @@ const keyExtractor = ({ phone }) => phone;
 const Contacts = ({ navigation }) => {
 
   const { contacts, loading, error } = useSelector((state) => state);
+  
   const dispatch = useDispatch();
 
   const [searchTerm, setSearchTerm] = useState('');
@@ -66,7 +67,7 @@ const Contacts = ({ navigation }) => {
      
       <View style={themeStyles.header}>
         <TouchableOpacity>
-          <Text style={themeStyles.editText}>Sửa</Text>
+          <Text style={themeStyles.editText}></Text>
         </TouchableOpacity>
         <Text style={themeStyles.title}>Danh bạ</Text>
         <TouchableOpacity>
