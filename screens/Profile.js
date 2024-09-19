@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Alert, Linking, Share,Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';  
-import ContactThumbnail from '../components/ContactThumbnail';
+import ContactThumbnail2 from '../components/ContactThumbnail2';
 import DetailListItem from '../components/DetailListItem';
 import colors from '../utility/colors';
 
@@ -48,6 +48,19 @@ const Profile = ({ route }) => {
       .catch((err) => console.log('Error making video call:', err));
   };
 
+  const handlePressEmail = () => {
+    const mailUrl = `mailto:${email}`;
+    Linking.canOpenURL(mailUrl)
+      .then((supported) => {
+        if (!supported) {
+          Alert.alert('Lỗi', `Không thể gửi email cho ${email}`);
+        } else {
+          Linking.openURL(mailUrl);
+        }
+      })
+      .catch((err) => console.error('LỖI EMAIL:', err));
+  };
+
   const handlePressShare = () => {
     const message = `Contact Details:\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}`;
     
@@ -73,24 +86,27 @@ const Profile = ({ route }) => {
     <View style={styles.container}>
       <View style={styles.content}>
         <View style={styles.avatarSection}>
-          <ContactThumbnail avatar={avatar} name={name} phone={phone} />         
+          <ContactThumbnail2 avatar={avatar} name={name}  />         
           <View style={styles.actionContainer}>
           <TouchableOpacity style={styles.actionButton} onPress={handlePressMessage}>
               <Icon name="chatbubble" size={25} color={'#fffffe'} />
-              <Text style={styles.actionText}>Message</Text>
+              {/* <Text style={styles.actionText}>Message</Text> */}
             </TouchableOpacity>
             <TouchableOpacity style={styles.actionButton} onPress={handlePressCall}>
               <Icon name="call" size={25} color={'#fffffe'} />
-              <Text style={styles.actionText}>Call</Text>
-            </TouchableOpacity>           
-            <TouchableOpacity style={styles.actionButton} onPress={handlePressVideo}>
-              <Icon name="videocam" size={25} color={'#fffffe'} />
-              <Text style={styles.actionText}>Video</Text>
+              {/* <Text style={styles.actionText}>Call</Text> */}
             </TouchableOpacity>
+            <TouchableOpacity style={styles.actionButton} onPress={handlePressCall}>
+              <Icon name="videocam" size={30} color={'#fffffe'} />
+              {/* <Text style={styles.actionText}>VideoCall</Text> */}
+            </TouchableOpacity>            
+       
           </View>
         </View>        
         <View style={styles.detailsSection}>
-          <DetailListItem icon="mail" title="Email" subtitle={email} />
+        <TouchableOpacity onPress={handlePressEmail}>
+            <DetailListItem icon="mail" title="Email" subtitle={email} />
+          </TouchableOpacity>
           <DetailListItem icon="phone" title="Work" subtitle={phone} />
           <DetailListItem icon="smartphone" title="Personal" subtitle={cell} />
         </View>
@@ -114,31 +130,30 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   avatarSection: {
-    alignItems: 'center',
-    marginBottom: 20,
+    alignItems: 'center',   
   },
   detailsSection: {
     flex: 1,
     backgroundColor: 'white',
     borderRadius: 10,
     padding: 10,
-    maxHeight: 250,
-    marginBottom: 20, // Khoảng cách giữa phần thông tin và nút chia sẻ
+    maxHeight: 350,
+    marginBottom: 5, 
   },
   actionContainer: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 10,
+    paddingVertical: 20,
   },
   actionButton: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      backgroundColor: '#5f6c7b',
-      borderRadius: 10,
-      padding: 10,
-      margin: 7,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#2f88fa',
+    borderRadius: 30, 
+    width: 60, 
+    height: 60, 
+    marginHorizontal: 10,
   },
   
   actionText: {

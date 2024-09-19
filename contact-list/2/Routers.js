@@ -163,7 +163,7 @@ const Tab = createMaterialBottomTabNavigator();
               name="FavoritesScreens"
               component={FavoritesScreens}
               options={{
-                tabBarIcon: getTabBarIcon('favorite-outline'),
+                tabBarIcon: getTabBarIcon('favorite'),
               }}
             />
             <Tab.Screen

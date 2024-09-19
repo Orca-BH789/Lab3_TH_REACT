@@ -65,7 +65,7 @@ const Contacts = ({ navigation }) => {
   return (
     <View style={[styles.container, themeStyles.container]}>
      
-      <View style={themeStyles.header}>
+      {/* <View style={themeStyles.header}>
         <TouchableOpacity>
           <Text style={themeStyles.editText}></Text>
         </TouchableOpacity>
@@ -73,7 +73,7 @@ const Contacts = ({ navigation }) => {
         <TouchableOpacity>
           <Ionicons name="add" size={24} color={colorScheme === 'dark' ? '#3da9fc' : 'black'}  />
         </TouchableOpacity>
-      </View>
+      </View> */}
 
    
       <View style={themeStyles.searchBar}>
